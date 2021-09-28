@@ -4,6 +4,7 @@ import sys
 sys.path.append('./')
 import cv2
 import matplotlib.pyplot as plt
+from collections import Counter
 from ContourDetecter import *
 from DataProcessor import *
 
@@ -14,8 +15,13 @@ if __name__ == '__main__':
     contours = contour_detect(binarized)
     points = contour_iterator(contours)
     data = stat_distance(points)
-    plt.hist(data, 50)
-    plt.show()
+    ind = dice_dealer(data)
+    c = Counter(ind)
+    print(c.most_common(10))
+    length = maxValueDicider(data)
+    print(length)
+    # plt.hist(data, 400)
+    # plt.show()
 
 
 
