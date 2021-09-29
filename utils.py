@@ -27,6 +27,8 @@ class Color(Enum):
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
 
+    BG_COLOR = (255, 188, 128)
+
 
 # deal with lines
 # utils.py by CoccaGuo at 2021/09/28 13:30

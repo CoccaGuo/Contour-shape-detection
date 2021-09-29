@@ -1,5 +1,6 @@
 # test_print_contour.py by CoccaGuo at 2021/09/28 18:13
 
+from ColorBlender import blender
 import sys
 sys.path.append('./')
 import cv2
@@ -15,6 +16,7 @@ def print_color(ring, color):
         ring.colored = True
         pts = rf.contour_list[ring.id]
         cv2.fillConvexPoly(image, pts, color.value)
+        blender(image, rf.contour_list[ring.id], color, k=3)
 
 if __name__ == '__main__':
     image_path = 'data/raw.png'
