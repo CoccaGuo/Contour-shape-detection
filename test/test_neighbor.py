@@ -20,7 +20,8 @@ if __name__ == '__main__':
     numberList = nearestCounter(center_list, refLength)
 
     rf = RingFactory(center_list, numberList, refLength)
-    selected_rings = random.choices(rf.ring_list, k=4) # show 3 rings and their neighbor
+    # selected_rings = random.choices(rf.ring_list, k=4) # show 3 rings and their neighbor
+    selected_rings = rf.findRingsByID([75])
     for ring in selected_rings:
         print(ring.position)
         cv2.circle(image, ring.position, 2, Color.RED.value, 4)

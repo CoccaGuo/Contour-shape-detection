@@ -12,9 +12,9 @@ from RingFactoryMaker import getRingFactory
 
 def print_color(ring, color):
     if ring.colored == False:
+        ring.colored = True
         pts = rf.contour_list[ring.id]
         cv2.fillConvexPoly(image, pts, color.value)
-        ring.colored = True
 
 if __name__ == '__main__':
     image_path = 'data/raw.png'
@@ -22,24 +22,33 @@ if __name__ == '__main__':
     rf = getRingFactory(image)
 
     for ring in rf.ring_list:
+
         if ring.sides == 7:
+            print_color(ring, Color.SLATEBLUE)
+
+            for nnRing in rf.findRingsByID(rf.nearestNeighbor(ring.id)):
+                if nnRing.sides == 6:
+                    print_color(nnRing, Color.IVORY)
+
+        if ring.sides == 5:
             print_color(ring, Color.WHEAT)
 
             for nnRing in rf.findRingsByID(rf.nearestNeighbor(ring.id)):
                 if nnRing.sides == 6:
-                    print_color(nnRing, Color.SLATEBLUE)
-
-        if ring.sides == 5:
-            print_color(ring, Color.SEAGREEN)
-
-            for nnRing in rf.findRingsByID(rf.nearestNeighbor(ring.id)):
-                if nnRing.sides == 6:
-                    print_color(nnRing, Color.SLATEBLUE)
-            
+                    print_color(nnRing, Color.IVORY)
+                
+                
         if ring.sides == 6:
-            print_color(ring, Color.YELLOW)
-            
+            flag = True
+            for nnRing in rf.findRingsByID(rf.nearestNeighbor(ring.id)):
+                if nnRing.sides != 6:
+                    flag = False
+            if flag:
+                print_color(ring, Color.YELLOW)
+        
+        cv2.putText(image, str(ring.id), ring.position, cv2.FONT_HERSHEY_SIMPLEX, 0.4, Color.RED.value)
+         
     cv2.imshow("pic", image)
     cv2.waitKey()
     cv2.destroyAllWindows()
-    cv2.imwrite('readme.assert/bordor1.png', image)
+    # cv2.imwrite('readme.assert/repaired_bordor.png', image)

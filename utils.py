@@ -23,6 +23,7 @@ class Color(Enum):
     YELLOW = (0, 255, 255)
     WHEAT = (179, 222, 245)
     PURPLE = (240, 32, 160)
+    IVORY = (240, 255, 255)
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
 

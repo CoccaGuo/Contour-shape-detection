@@ -7,12 +7,12 @@ from RingFactory import RingFactory
 def getRingFactory(image):
     binarized = binarize(image)
     contour = contour_detect(binarized)
-    center_list, con_list = contour_iterator(contour)
+    center_list = contour_iterator(contour)
     
     data = stat_distance(center_list)
     refLength = maxValueDicider(data)
     numberList = nearestCounter(center_list, refLength)
 
     rf = RingFactory(center_list, numberList, refLength)
-    rf.contour_list = con_list
+    rf.contour_list = contour
     return rf
