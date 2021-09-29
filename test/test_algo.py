@@ -13,7 +13,7 @@ if __name__ == '__main__':
     image = cv2.imread(image_path)
     binarized = binarize(image)
     contours = contour_detect(binarized)
-    points = contour_iterator(contours)
+    points,_ = contour_iterator(contours)
     data = stat_distance(points)
     ind = dice_dealer(data)
     c = Counter(ind)

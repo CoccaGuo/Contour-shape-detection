@@ -14,12 +14,12 @@ if __name__ == '__main__':
     # cv2.drawContours(image=image, contours=contours,
     #  contourIdx=30, color=RED, thickness=2, lineType=cv2.LINE_AA)
 
-    point = calc_center(contours[30])
+    point, _ = calc_center(contours[30])
     pt_list = []
     for item in contours[30]:
         pt_list.append((item[0], item[1]))
     for point in pt_list:
-        cv2.circle(image, point, 1, RED, 4)
+        cv2.circle(image, point, 1, Color.RED.value, 4)
 
     cv2.imshow("pic", image)
     cv2.waitKey()

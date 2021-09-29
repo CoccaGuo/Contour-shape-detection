@@ -4,12 +4,12 @@ from Ring import Ring
 from DataProcessor import distance
 
 class RingFactory:
-    def __init__(self, data_list, counter_list, refLength, shreshold=0.7) -> None:
+    def __init__(self, center_pt_list, counter_list, refLength, shreshold=0.7) -> None:
         self.count = 0
         self.ring_list = []
         self.refLength = refLength
         self.shreshold = shreshold
-        for pt, ct in zip(data_list, counter_list):
+        for pt, ct in zip(center_pt_list, counter_list):
             self.ring_list.append(Ring(position=pt, sides=ct, id=self.count))
             self.count += 1
 

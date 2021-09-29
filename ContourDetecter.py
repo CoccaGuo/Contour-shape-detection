@@ -31,12 +31,14 @@ def calc_center(contour_item):
         y += i[0][1]
     x_c = int(x/len(contour_item))
     y_c = int(y/len(contour_item))
-    return (x_c, y_c)
+    return (x_c, y_c), contour_item
 
 
 def contour_iterator(contour):
     _list = []
+    _con_list = []
     for item in contour:
-        point = calc_center(item)
+        point, con = calc_center(item)
         _list.append(point)
-    return _list
+        _con_list.append(con)
+    return _list, _con_list

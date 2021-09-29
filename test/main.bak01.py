@@ -10,7 +10,7 @@ if __name__ == '__main__':
     image = cv2.imread(image_path)
     binarized = binarize(image)
     contour = contour_detect(binarized)
-    center_list = contour_iterator(contour)
+    center_list,_ = contour_iterator(contour)
     
     data = stat_distance(center_list)
     refLength = maxValueDicider(data)

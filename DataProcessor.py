@@ -4,6 +4,7 @@ from itertools import combinations
 from collections import Counter
 
 
+
 def distance(point1, point2):
     return math.sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2)
 
@@ -23,7 +24,7 @@ def dice_dealer(data_list, space=1):
 def maxValueDicider(data_list):
     indices = dice_dealer(data_list)
     counter = Counter(indices)
-    _min = 400
+    _min = math.inf
     for item in counter.most_common(8):
         _min = min(item[0], _min)
     return _min
