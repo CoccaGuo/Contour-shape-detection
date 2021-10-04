@@ -1,6 +1,5 @@
 # test_print_contour.py by CoccaGuo at 2021/09/28 18:13
 
-from ColorBlender import blender
 import sys
 sys.path.append('./')
 import cv2
@@ -8,6 +7,7 @@ import numpy as np
 from DataProcessor import *
 from ContourDetecter import *
 from utils import Color
+from ColorBlender import *
 from RingFactoryMaker import getRingFactory
 
 
@@ -15,8 +15,10 @@ def print_color(ring, color):
     if ring.colored == False:
         ring.colored = True
         pts = rf.contour_list[ring.id]
+        # singleLayerBlender(image, ring, rf.contour_list[ring.id], color, Color.BG_COLOR, k=3)
+        multiLayerBlender(image, ring, rf.contour_list[ring.id], color, Color.BG_COLOR, k=4)
         cv2.fillConvexPoly(image, pts, color.value)
-        blender(image, rf.contour_list[ring.id], color, k=3)
+        
 
 if __name__ == '__main__':
     image_path = 'data/raw.png'
@@ -48,7 +50,7 @@ if __name__ == '__main__':
             if flag:
                 print_color(ring, Color.YELLOW)
         
-        cv2.putText(image, str(ring.id), ring.position, cv2.FONT_HERSHEY_SIMPLEX, 0.4, Color.RED.value)
+        # cv2.putText(image, str(ring.id), ring.position, cv2.FONT_HERSHEY_SIMPLEX, 0.4, Color.RED.value)
          
     cv2.imshow("pic", image)
     cv2.waitKey()

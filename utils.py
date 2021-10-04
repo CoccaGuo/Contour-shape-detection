@@ -1,4 +1,7 @@
 # utils.py by CoccaGuo at 2021/09/27 12:28
+import cv2
+import numpy as np
+from DataProcessor import distance
 from enum import Enum
 import cmath, math
 import heapq
@@ -29,7 +32,7 @@ class Color(Enum):
 
     BG_COLOR = (255, 188, 128)
 
-
+    
 # deal with lines
 # utils.py by CoccaGuo at 2021/09/28 13:30
 def perpendicularBisector(pt1, pt2):
