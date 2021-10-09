@@ -1,7 +1,5 @@
 # test_print_contour.py by CoccaGuo at 2021/09/28 18:13
 
-import sys
-sys.path.append('./')
 import cv2
 import numpy as np
 from DataProcessor import *
