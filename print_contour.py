@@ -52,8 +52,8 @@ def result_plot(image_path: str):
     cv2.imshow("pic", image)
     cv2.waitKey()
     cv2.destroyAllWindows()
-    # cv2.imwrite('readme.assert/repaired_bordor.png', image)
+    cv2.imwrite('readme.assert/final_1.png', image)
 
 if __name__ == '__main__':
-    image_path = 'data/raw.png'
+    image_path = 'data/raw2.png'
     result_plot(image_path)

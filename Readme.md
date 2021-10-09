@@ -59,4 +59,15 @@
 
 ![](./readme.assert/bordor1.png)
 
-之前的计数方法稍微有些问题，
+之前的计数方法稍微有些问题，更正后的所有有序区域应该如下图所示：
+
+![](./readme.assert/repaired_bordor.png)
+
+
+## 更好的涂色
+
+引入`ColorBlender.py`， 用于修饰圆环，计划有几种不同的修饰器，如平滑过渡等等。目前使用的是`multiLayerBlender`
+
+## 结果
+
+![](./readme.assert/final_0.png)

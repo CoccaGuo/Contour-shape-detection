@@ -9,4 +9,4 @@ if __name__ == '__main__':
     if os.path.exists(data_package_path):
         files=os.listdir(data_package_path)
         for file in files:
-            result_plot(os.path.join(data_package_path,file))
+            result_plot(os.path.join(data_package_path, file))
